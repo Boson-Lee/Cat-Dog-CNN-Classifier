@@ -1,0 +1,318 @@
+--- Starting Dataset Preparation ---
+Project directory created at: C:\Users\User\OneDrive\桌面\ML_Workspace\cat_dog_classifier_20260411_155658
+Dataset not found. Starting download...
+Download complete.
+Extracting files... This might take a few minutes.
+Extraction complete.
+Cleaned up the zip file.
+Cleaning dataset: Verifying all images can be opened...
+  - Deleting corrupted file: C:\Users\User\OneDrive\桌面\ML_Workspace\cat_dog_classifier_20260411_155658\dataset\PetImages\Cat\666.jpg (cannot identify image file 'C:\\Users\\User\\OneDrive\\桌面\\ML_Workspace\\cat_dog_classifier_20260411_155658\\dataset\\PetImages\\Cat\\666.jpg')
+  - Deleting corrupted file: C:\Users\User\OneDrive\桌面\ML_Workspace\cat_dog_classifier_20260411_155658\dataset\PetImages\Dog\11702.jpg (cannot identify image file 'C:\\Users\\User\\OneDrive\\桌面\\ML_Workspace\\cat_dog_classifier_20260411_155658\\dataset\\PetImages\\Dog\\11702.jpg')
+Dataset cleaning complete.
+Splitting data into train, validation, and inference sets...
+  - Cat: 7500 train, 2500 val, 2500 infer.
+  - Dog: 7500 train, 2500 val, 2500 infer.
+Data splitting complete.
+--- Dataset Preparation Complete ---
+
+--- Starting Model Training ---
+Using device: cuda
+
+Loading datasets...
+  - Training samples: 14999
+  - Validation samples: 4999
+
+--- Model Architecture ---
+SimpleCNN(
+  (features): Sequential(
+    (0): Conv2d(3, 32, kernel_size=(3, 3), stride=(2, 2), padding=(1, 1))
+    (1): BatchNorm2d(32, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+    (2): ReLU(inplace=True)
+    (3): Conv2d(32, 64, kernel_size=(3, 3), stride=(2, 2), padding=(1, 1))
+    (4): BatchNorm2d(64, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+    (5): ReLU(inplace=True)
+    (6): Conv2d(64, 128, kernel_size=(3, 3), stride=(2, 2), padding=(1, 1))
+    (7): BatchNorm2d(128, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+    (8): ReLU(inplace=True)
+    (9): Conv2d(128, 256, kernel_size=(3, 3), stride=(2, 2), padding=(1, 1))
+    (10): BatchNorm2d(256, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+    (11): ReLU(inplace=True)
+  )
+  (gap): AdaptiveAvgPool2d(output_size=1)
+  (classifier): Sequential(
+    (0): Linear(in_features=256, out_features=128, bias=True)
+    (1): ReLU(inplace=True)
+    (2): Dropout(p=0.4, inplace=False)
+    (3): Linear(in_features=128, out_features=64, bias=True)
+    (4): ReLU(inplace=True)
+    (5): Dropout(p=0.4, inplace=False)
+    (6): Linear(in_features=64, out_features=2, bias=True)
+  )
+)
+
+Total Trainable Parameters: 430,658
+--------------------------
+
+--- Epoch 1/500 ---
+  Epoch Duration: 138.66s
+  Train Loss: 0.6613 | Train Acc: 0.5976
+  Val Loss:   0.6587 | Val Acc:   0.5987
+  Validation loss improved from inf to 0.6587. Saving model...
+-------------------
+--- Epoch 2/500 ---
+  Epoch Duration: 95.95s
+  Train Loss: 0.6233 | Train Acc: 0.6588
+  Val Loss:   0.5967 | Val Acc:   0.6817
+  Validation loss improved from 0.6587 to 0.5967. Saving model...
+-------------------
+--- Epoch 3/500 ---
+  Epoch Duration: 96.24s
+  Train Loss: 0.5927 | Train Acc: 0.6876
+  Val Loss:   0.5503 | Val Acc:   0.7165
+  Validation loss improved from 0.5967 to 0.5503. Saving model...
+-------------------
+--- Epoch 4/500 ---
+  Epoch Duration: 87.48s
+  Train Loss: 0.5630 | Train Acc: 0.7118
+  Val Loss:   0.5318 | Val Acc:   0.7293
+  Validation loss improved from 0.5503 to 0.5318. Saving model...
+-------------------
+--- Epoch 5/500 ---
+  Epoch Duration: 97.93s
+  Train Loss: 0.5324 | Train Acc: 0.7368
+  Val Loss:   0.5459 | Val Acc:   0.7159
+  Validation loss did not improve. Patience: 1/15
+-------------------
+--- Epoch 6/500 ---
+  Epoch Duration: 100.99s
+  Train Loss: 0.5122 | Train Acc: 0.7483
+  Val Loss:   0.4834 | Val Acc:   0.7668
+  Validation loss improved from 0.5318 to 0.4834. Saving model...
+-------------------
+--- Epoch 7/500 ---
+  Epoch Duration: 95.21s
+  Train Loss: 0.4962 | Train Acc: 0.7613
+  Val Loss:   0.4851 | Val Acc:   0.7650
+  Validation loss did not improve. Patience: 1/15
+-------------------
+--- Epoch 8/500 ---
+  Epoch Duration: 76.85s
+  Train Loss: 0.4754 | Train Acc: 0.7755
+  Val Loss:   0.7881 | Val Acc:   0.6029
+  Validation loss did not improve. Patience: 2/15
+-------------------
+--- Epoch 9/500 ---
+  Epoch Duration: 74.01s
+  Train Loss: 0.4510 | Train Acc: 0.7915
+  Val Loss:   0.4835 | Val Acc:   0.7644
+  Validation loss did not improve. Patience: 3/15
+-------------------
+--- Epoch 10/500 ---
+  Epoch Duration: 71.36s
+  Train Loss: 0.4393 | Train Acc: 0.8038
+  Val Loss:   0.7451 | Val Acc:   0.6487
+  Validation loss did not improve. Patience: 4/15
+-------------------
+--- Epoch 11/500 ---
+  Epoch Duration: 91.94s
+  Train Loss: 0.4289 | Train Acc: 0.8036
+  Val Loss:   0.4508 | Val Acc:   0.7796
+  Validation loss improved from 0.4834 to 0.4508. Saving model...
+-------------------
+--- Epoch 12/500 ---
+  Epoch Duration: 95.99s
+  Train Loss: 0.4078 | Train Acc: 0.8204
+  Val Loss:   0.5171 | Val Acc:   0.7594
+  Validation loss did not improve. Patience: 1/15
+-------------------
+--- Epoch 13/500 ---
+  Epoch Duration: 89.49s
+  Train Loss: 0.3959 | Train Acc: 0.8223
+  Val Loss:   0.6117 | Val Acc:   0.7421
+  Validation loss did not improve. Patience: 2/15
+-------------------
+--- Epoch 14/500 ---
+  Epoch Duration: 96.11s
+  Train Loss: 0.3816 | Train Acc: 0.8337
+  Val Loss:   0.3927 | Val Acc:   0.8170
+  Validation loss improved from 0.4508 to 0.3927. Saving model...
+-------------------
+--- Epoch 15/500 ---
+  Epoch Duration: 93.39s
+  Train Loss: 0.3738 | Train Acc: 0.8362
+  Val Loss:   0.5589 | Val Acc:   0.7520
+  Validation loss did not improve. Patience: 1/15
+-------------------
+--- Epoch 16/500 ---
+  Epoch Duration: 95.55s
+  Train Loss: 0.3623 | Train Acc: 0.8425
+  Val Loss:   0.4544 | Val Acc:   0.7790
+  Validation loss did not improve. Patience: 2/15
+-------------------
+--- Epoch 17/500 ---
+  Epoch Duration: 93.68s
+  Train Loss: 0.3406 | Train Acc: 0.8528
+  Val Loss:   0.5096 | Val Acc:   0.7820
+  Validation loss did not improve. Patience: 3/15
+-------------------
+--- Epoch 18/500 ---
+  Epoch Duration: 81.26s
+  Train Loss: 0.3258 | Train Acc: 0.8587
+  Val Loss:   0.4107 | Val Acc:   0.8098
+  Validation loss did not improve. Patience: 4/15
+-------------------
+--- Epoch 19/500 ---
+  Epoch Duration: 84.32s
+  Train Loss: 0.3168 | Train Acc: 0.8653
+  Val Loss:   0.4206 | Val Acc:   0.8084
+  Validation loss did not improve. Patience: 5/15
+-------------------
+--- Epoch 20/500 ---
+  Epoch Duration: 81.04s
+  Train Loss: 0.2976 | Train Acc: 0.8760
+  Val Loss:   0.4028 | Val Acc:   0.8308
+  Validation loss did not improve. Patience: 6/15
+-------------------
+--- Epoch 21/500 ---
+  Epoch Duration: 80.23s
+  Train Loss: 0.2870 | Train Acc: 0.8783
+  Val Loss:   0.4123 | Val Acc:   0.8256
+  Validation loss did not improve. Patience: 7/15
+-------------------
+--- Epoch 22/500 ---
+  Epoch Duration: 69.00s
+  Train Loss: 0.2762 | Train Acc: 0.8853
+  Val Loss:   0.4093 | Val Acc:   0.8258
+  Validation loss did not improve. Patience: 8/15
+-------------------
+--- Epoch 23/500 ---
+  Epoch Duration: 68.14s
+  Train Loss: 0.2703 | Train Acc: 0.8878
+  Val Loss:   0.5003 | Val Acc:   0.8112
+  Validation loss did not improve. Patience: 9/15
+-------------------
+--- Epoch 24/500 ---
+  Epoch Duration: 67.68s
+  Train Loss: 0.2503 | Train Acc: 0.8983
+  Val Loss:   0.3954 | Val Acc:   0.8350
+  Validation loss did not improve. Patience: 10/15
+-------------------
+--- Epoch 25/500 ---
+  Epoch Duration: 65.53s
+  Train Loss: 0.2359 | Train Acc: 0.9037
+  Val Loss:   0.3839 | Val Acc:   0.8388
+  Validation loss improved from 0.3927 to 0.3839. Saving model...
+-------------------
+--- Epoch 26/500 ---
+  Epoch Duration: 64.63s
+  Train Loss: 0.2235 | Train Acc: 0.9108
+  Val Loss:   0.4877 | Val Acc:   0.8216
+  Validation loss did not improve. Patience: 1/15
+-------------------
+--- Epoch 27/500 ---
+  Epoch Duration: 69.65s
+  Train Loss: 0.2144 | Train Acc: 0.9140
+  Val Loss:   0.3985 | Val Acc:   0.8340
+  Validation loss did not improve. Patience: 2/15
+-------------------
+--- Epoch 28/500 ---
+  Epoch Duration: 66.37s
+  Train Loss: 0.1987 | Train Acc: 0.9186
+  Val Loss:   0.4268 | Val Acc:   0.8396
+  Validation loss did not improve. Patience: 3/15
+-------------------
+--- Epoch 29/500 ---
+  Epoch Duration: 75.59s
+  Train Loss: 0.1867 | Train Acc: 0.9272
+  Val Loss:   0.8820 | Val Acc:   0.7662
+  Validation loss did not improve. Patience: 4/15
+-------------------
+--- Epoch 30/500 ---
+  Epoch Duration: 80.63s
+  Train Loss: 0.1788 | Train Acc: 0.9300
+  Val Loss:   0.4827 | Val Acc:   0.8330
+  Validation loss did not improve. Patience: 5/15
+-------------------
+--- Epoch 31/500 ---
+  Epoch Duration: 81.43s
+  Train Loss: 0.1702 | Train Acc: 0.9334
+  Val Loss:   0.8543 | Val Acc:   0.7499
+  Validation loss did not improve. Patience: 6/15
+-------------------
+--- Epoch 32/500 ---
+  Epoch Duration: 82.09s
+  Train Loss: 0.1673 | Train Acc: 0.9359
+  Val Loss:   0.4794 | Val Acc:   0.8408
+  Validation loss did not improve. Patience: 7/15
+-------------------
+--- Epoch 33/500 ---
+  Epoch Duration: 82.21s
+  Train Loss: 0.1521 | Train Acc: 0.9421
+  Val Loss:   0.6153 | Val Acc:   0.8038
+  Validation loss did not improve. Patience: 8/15
+-------------------
+--- Epoch 34/500 ---
+  Epoch Duration: 83.78s
+  Train Loss: 0.1435 | Train Acc: 0.9432
+  Val Loss:   0.5174 | Val Acc:   0.8318
+  Validation loss did not improve. Patience: 9/15
+-------------------
+--- Epoch 35/500 ---
+  Epoch Duration: 83.17s
+  Train Loss: 0.1424 | Train Acc: 0.9460
+  Val Loss:   0.6192 | Val Acc:   0.8168
+  Validation loss did not improve. Patience: 10/15
+-------------------
+--- Epoch 36/500 ---
+  Epoch Duration: 71.92s
+  Train Loss: 0.1330 | Train Acc: 0.9512
+  Val Loss:   0.4534 | Val Acc:   0.8398
+  Validation loss did not improve. Patience: 11/15
+-------------------
+--- Epoch 37/500 ---
+  Epoch Duration: 71.34s
+  Train Loss: 0.1292 | Train Acc: 0.9499
+  Val Loss:   0.5174 | Val Acc:   0.8268
+  Validation loss did not improve. Patience: 12/15
+-------------------
+--- Epoch 38/500 ---
+  Epoch Duration: 64.83s
+  Train Loss: 0.1185 | Train Acc: 0.9538
+  Val Loss:   0.5343 | Val Acc:   0.8434
+  Validation loss did not improve. Patience: 13/15
+-------------------
+--- Epoch 39/500 ---
+  Epoch Duration: 67.00s
+  Train Loss: 0.1155 | Train Acc: 0.9573
+  Val Loss:   0.5062 | Val Acc:   0.8374
+  Validation loss did not improve. Patience: 14/15
+-------------------
+--- Epoch 40/500 ---
+  Epoch Duration: 85.23s
+  Train Loss: 0.1161 | Train Acc: 0.9548
+  Val Loss:   0.6953 | Val Acc:   0.7910
+  Validation loss did not improve. Patience: 15/15
+
+Stopping early after 40 epochs as validation loss did not improve for 15 epochs.
+
+--- Training Complete ---
+Total Training Time: 55m 18s
+Best Validation Loss: 0.3839
+Best model saved to: C:\Users\User\OneDrive\桌面\ML_Workspace\cat_dog_classifier_20260411_155658\best_model.pth
+
+--- Starting Inference on the Test Set ---
+Best model loaded for inference.
+Found 5000 images for inference.
+
+--- Inference Results Summary ---
+  Overall Accuracy: 84.78% (4239/5000)
+  Cat Accuracy:     79.28% (1982/2500)
+  Dog Accuracy:     90.28% (2257/2500)
+  Average Inference Speed: 0.05 ms per image
+
+Saving example classification results...
+Saved 10 correct and 5 incorrect examples.
+You can find them in: C:\Users\User\OneDrive\桌面\ML_Workspace\cat_dog_classifier_20260411_155658\inference_results
+--- Inference Complete ---
+
+Script finished.
