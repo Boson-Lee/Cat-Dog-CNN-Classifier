@@ -1,0 +1,14 @@
+# Dataset and trained models
+dataset/
+*.pth
+*.zip
+__pycache__/
+*.log
+
+# Jupyter
+.ipynb_checkpoints/
+
+# Virtual Environments
+venv/
+env/
+.env/
