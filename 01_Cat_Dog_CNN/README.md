@@ -32,7 +32,7 @@
 ## 📁 檔案結構
 
 - `train_cat_dog.ipynb`：**強烈建議閱讀此檔案！** 包含完整的訓練流程、註解說明、資料視覺化、模型架構與圖表繪製。
-- `train_cat_dog_improved.py` / `train_cat_dog.py`：純 Python 腳本版本的訓練程式碼。
+- `train_cat_dog.py`：最初自建 CNN 模型的純 Python 腳本版本。
 - `cat_dog_classifier_.../`：訓練過程中自動保存的最佳模型權重。
 - `roc_curve_result.png`：模型評估結果圖表。
 
