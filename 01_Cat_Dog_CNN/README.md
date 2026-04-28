@@ -13,13 +13,21 @@
 - **Dropout 機制**：在全連接層 (FC layer) 加入 Dropout (p=0.5)，隨機使部分神經元失活，強迫模型學習更具代表性的特徵。
 - **早停機制 (Early Stopping)**：監控驗證集的 Loss 變化，當模型在數個 Epoch 內沒有進步時自動停止訓練，保存最佳權重，避免後續訓練導致過擬合。
 
-## 📊 訓練成果與評估
+## 📊 訓練成果與評估 (ROC 曲線比對)
 
-經過優化後，模型在驗證集上的表現非常優異。下圖為本模型的 **ROC 曲線 (Receiver Operating Characteristic curve)**，展示了 True Positive Rate 與 False Positive Rate 的關係。
+為了突顯我們導入 ResNet18 遷移學習與抗過擬合技術的效果，我們將「**未修改前的自建 CNN 模型**」與「**優化後的模型**」進行了比對：
 
-*(圖形呈現完美的直角，代表我們的模型擁有極高的 AUC (Area Under Curve)，分類能力非常強泛！)*
+### 1. 原始模型 (未修改前)
+這是我們最初自行搭建的 CNN 模型所繪製出來的 ROC 曲線。可以看出其分類能力仍有提升空間。
 
-![ROC Curve Result](./roc_curve_result.png)
+![Original ROC Curve](./roc_curve_result.png)
+
+### 2. 優化後模型 (導入 ResNet18)
+經過加入遷移學習、L2 正規化、Dropout 與 Early Stopping 等機制後，模型的表現大幅提升！ROC 曲線呈現出幾乎完美的直角，代表我們的模型擁有極高的 AUC (Area Under Curve)，分類能力極強！
+
+*(請將您後來在 Notebook 跑出呈現直角的 ROC 圖片存檔命名為 `roc_curve_improved.png`，並放在這個資料夾下，圖片就會自動顯示在這裡囉！)*
+
+![Improved ROC Curve](./roc_curve_improved.png)
 
 ## 📁 檔案結構
 
