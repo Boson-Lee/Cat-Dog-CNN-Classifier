@@ -1,5 +1,6 @@
 # Dataset and trained models
 dataset/
+02_Wafer_Map_Classification/data/
 *.pth
 *.zip
 __pycache__/

@@ -38,6 +38,8 @@
 
 ## 🚀 如何使用
 
+[![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/Boson-Lee/Cat-Dog-CNN-Classifier/blob/main/01_Cat_Dog_CNN/train_cat_dog.ipynb)
+
 若要在本地端執行此專案，請先確保安裝了相關套件：
 
 ```bash
